@@ -1,0 +1,57 @@
+Welcome to the Game System User Manual. This manual will guide you through the installation, components, and usage of the system, ensuring a smooth and enjoyable gaming experience.
+
+---------- Installation
+Unity Installation: Ensure you have Unity installed on your computer. You can download it from the official Unity website.
+Project Setup: Create a new Unity project or open an existing one.
+Script Integration: Add the provided scripts (GameManager.cs, MainCharacter.cs, and Missile.cs) to your project.
+
+
+---------- System Components
+GameManager
+Description: The GameManager handles the overall game state, including game initialization and game over logic.
+
+Key Functions:
+Ensures only one instance exists.
+Manages the game over state.
+
+MainCharacter
+Description: The MainCharacter script controls the player's character movement and responds to game over conditions.
+
+Key Functions:
+Handles character movement based on user input.
+Stops movement when the game is over.
+
+Missile
+Description: The Missile script controls missile behavior, including tracking the MainCharacter and handling collisions.
+
+Key Functions:
+Tracks and follows the MainCharacter.
+Detects collisions and triggers game over when hitting the MainCharacter.
+
+
+---------- Using the System
+Starting the Game
+Scene Setup: Ensure your scene contains the GameManager, MainCharacter, and Missile objects.
+GameManager: Add the GameManager script to an empty GameObject named GameManager.
+MainCharacter: Add the MainCharacter script to the player's character GameObject.
+Missile: Add the Missile script to the missile GameObject and assign the MainCharacter as the target.
+
+Controlling the MainCharacter
+Movement: Use the arrow keys or WASD keys to move the MainCharacter. The character's speed is determined by the speed variable in the MainCharacter script.
+Game Over: When the game is over, the character will stop moving, and a "Game Over!" message will be logged.
+
+Missile Mechanics
+Tracking: The missile will automatically track and follow the MainCharacter.
+Collision: Upon collision with the MainCharacter, an explosion effect (Kaboom) will be instantiated, the missile will be destroyed, and the game will be set to a game over state.
+
+
+---------- Troubleshooting
+Issue: The MainCharacter is not moving.
+
+Solution: Ensure the isGameOver flag in the MainCharacter script is set to false.
+Issue: The missile is not following the MainCharacter.
+
+Solution: Verify that the target in the Missile script is correctly assigned to the MainCharacter.
+Issue: The game does not end upon missile collision.
+
+Solution: Ensure the OnTriggerEnter2D method in the Missile script is correctly detecting collisions and that the MainCharacter has a Collider2D component with the "Player" tag.
